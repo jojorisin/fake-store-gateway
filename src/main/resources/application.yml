@@ -43,6 +43,14 @@ spring:
               predicates:
                 - Path=/api/inventory/**
 
+            - id: cart-service
+              uri: ${CART_SERVICE_URL:http://localhost:8085}
+              predicates:
+                - Path=/api/cart/**
+              filters:
+                - PreserveHostHeader
+                - DedupeResponseHeader=Set-Cookie
+
 
 
 server:
