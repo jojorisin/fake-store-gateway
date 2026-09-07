@@ -36,6 +36,13 @@ spring:
               predicates:
                 - Path=/api/orders/**
 
+            - id: order-service-webhook
+              uri: ${ORDER_SERVICE_URL}
+              predicates:
+                - Path=/api/payments/**
+              filters:
+                - PreserveHostHeader
+
             - id: inventory-service
               uri: ${INVENTORY_SERVICE_URL}
               predicates:
@@ -47,7 +54,7 @@ spring:
                 - Path=/api/cart/**
               filters:
                 - PreserveHostHeader
-                - DedupeResponseHeader=Set-Cookie
+
 
 
 
