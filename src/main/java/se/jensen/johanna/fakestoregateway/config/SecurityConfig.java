@@ -32,6 +32,7 @@ public class SecurityConfig {
         .authorizeExchange(auth -> auth
             .pathMatchers(HttpMethod.OPTIONS, "/**").permitAll()
             .pathMatchers("/actuator/health").permitAll()
+            .pathMatchers("/api/payments/**").permitAll()
             .pathMatchers("/api/auth/**").permitAll()
             .pathMatchers(HttpMethod.GET, "/api/products/**").permitAll()
             .pathMatchers(HttpMethod.POST, "/api/inventory/check-stock").permitAll()
